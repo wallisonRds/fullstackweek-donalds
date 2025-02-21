@@ -38,8 +38,7 @@ model MenuCategory {
 }
 
 model Product {
-  id             String         @id @default(uuid())
-  name           String
+  id             String         @id @default(uuid()) 
   description    String
   price          Float
   imageUrl       String

@@ -1,5 +1,5 @@
 const HomePage = () => {
-  return <a href="http://localhost:3000/fsw-donalds">hello wolrd</a>;
+  return <a href="fsw-donalds">hello world</a>;
 };
 
-export default HomePage;
+export default HomePage; 
