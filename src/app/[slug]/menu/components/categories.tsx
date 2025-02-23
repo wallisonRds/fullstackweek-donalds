@@ -21,20 +21,19 @@ interface RestaurantCategoriesProps {
 }
 
 type MenuCategoriesWithProducts = Prisma.MenuCategoryGetPayload<{
-    include: { products: true };
-}>
+  include: { products: true };
+}>;
 
 const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<MenuCategoriesWithProducts>(
-    restaurant.menuCategories[0],
-    );
+  const [selectedCategory, setSelectedCategory] =
+    useState<MenuCategoriesWithProducts>(restaurant.menuCategories[0]);
 
-    const handleCategoryClick = (category: MenuCategoriesWithProducts) => { 
-        setSelectedCategory(category)
-    }
-    const getCategoryButtonVariant = (category: MenuCategoriesWithProducts) => {
-     return  selectedCategory.id == category.id ? "default" : "secondary"
-    }
+  const handleCategoryClick = (category: MenuCategoriesWithProducts) => {
+    setSelectedCategory(category);
+  };
+  const getCategoryButtonVariant = (category: MenuCategoriesWithProducts) => {
+    return selectedCategory.id == category.id ? "default" : "secondary";
+  };
 
   return (
     <div className="relative z-50 mt-[-1.5rem] rounded-t-3xl bg-white">
@@ -60,7 +59,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
       <ScrollArea className="w-full">
         <div className="flex w-max space-x-4 p-4 pt-0">
           {restaurant.menuCategories.map((category) => (
-              <Button
+            <Button
               onClick={() => handleCategoryClick(category)}
               key={category.id}
               variant={getCategoryButtonVariant(category)}
@@ -72,10 +71,10 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
           ))}
         </div>
         <ScrollBar orientation="horizontal" />
-          </ScrollArea>
-          
-          <h3 className="px-5 font-semibold pt-2">{selectedCategory.name}</h3>
-          <Products products={selectedCategory.products}/>
+      </ScrollArea>
+
+      <h3 className="px-5 pt-2 font-semibold">{selectedCategory.name}</h3>
+      <Products products={selectedCategory.products} />
     </div>
   );
 };
