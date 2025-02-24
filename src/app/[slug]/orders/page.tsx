@@ -35,7 +35,7 @@ const OrdersPage = async ({searchParams}: OrdersPageProps) => {
                     product: true,
                 },
             },
-        }
+        } 
     })
 
     return ( 
