@@ -1,5 +1,6 @@
-const HomePage = () => {
-  return <a href="fsw-donalds">hello world</a>;
-};
+import RestaurantPage from "./[slug]/page";
 
+const HomePage = () => {
+  return <RestaurantPage params={Promise.resolve({ slug: "fsw-donalds" })} />;
+};
 export default HomePage;
